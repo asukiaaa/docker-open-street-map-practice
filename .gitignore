@@ -1,0 +1,5 @@
+volumes/
+*.osm.pbf
+mapnik/*.png
+__pycache__
+cache/

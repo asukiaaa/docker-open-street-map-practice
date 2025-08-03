@@ -1,0 +1,35 @@
+services:
+  mapnik:
+    build: ./mapnik
+    command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000"
+    ports:
+      - "8000:8000"
+    working_dir: /app
+    volumes:
+      - ./mapnik:/app
+    depends_on:
+      - postgis
+  mapnik_2404:
+    build: 
+      context: ./mapnik
+      dockerfile: Dockerfile-ubuntu2404
+    command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8001"
+    ports:
+      - "8001:8001"
+    working_dir: /app
+    volumes:
+      - ./mapnik:/app
+    depends_on:
+      - postgis
+  postgis:
+    build: ./postgis
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    working_dir: /app
+    # ports:
+    #   - "5432:5432"
+    volumes:
+      - ./postgis:/app
+      -  ./volumes/postgis:/var/lib/postgresql/data
