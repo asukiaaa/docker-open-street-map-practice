@@ -1,18 +1,17 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI
 from fastapi.responses import Response
 import mapnik
 import time
 
 app = FastAPI()
 
-@app.get("/map")
-def render_map(z: int = Query(10), x: int = Query(1000), y: int = Query(1000)):
-    # m = mapnik.Map(256, 256)
+@app.get("/")
+def render_map():
     time_start = time.time()
     px_width = 600
     px_height = 400
     m = mapnik.Map(px_width, px_height)
-    mapnik.load_map(m, "style.xml")  # Mapnik XMLファイルを用意しておく
+    mapnik.load_map(m, "style.xml")
 
     m.background = mapnik.Color('ghostwhite')
     # m.zoom_all()
