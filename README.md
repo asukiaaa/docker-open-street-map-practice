@@ -11,6 +11,8 @@
 docker compose up
 ```
 
+You can see map on http://localhost:8000 after loading map data.
+
 ## Put kanto of Japan to DB
 
 ```sh
