@@ -11,9 +11,9 @@
 docker compose up
 ```
 
-You can see map on http://localhost:8000 after loading map data.
+You can see map on http://localhost:8000 after importing map data.
 
-## Put kanto of Japan to DB
+## Import kanto of Japan to DB
 
 ```sh
 cd [this repo]
