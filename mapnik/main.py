@@ -29,7 +29,7 @@ def render_map():
     time_end = time.time()
     print("time of rendering %.3lf seconds" % (time_end - time_finish_loading))
 
-    im.save('file.png','png32:z=1')
+    # im.save('file.png','png32:z=1')
     png = im.tostring("png")
 
     return Response(content=png, media_type="image/png")
