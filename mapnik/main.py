@@ -14,6 +14,7 @@ def render_map(z: int = Query(10), x: int = Query(1000), y: int = Query(1000)):
     m = mapnik.Map(px_width, px_height)
     mapnik.load_map(m, "style.xml")  # Mapnik XMLファイルを用意しておく
 
+    m.background = mapnik.Color('ghostwhite')
     # m.zoom_all()
     # area = mapnik.Box2d(-180.0, -90.0, 180.0, 90.0)
     # area = mapnik.Box2d(0, 0, 180.0, 90.0)
